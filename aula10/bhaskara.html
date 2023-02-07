@@ -128,7 +128,7 @@
         <h2>X = (-b ± √Δ) / 2.a</h2>
         <div id="calc_button">
             <p>
-                <input type="submit" value="Calcular">
+                <input type="submit" value="Calcular" id="button" onclick="clicar()">
                 <input type="reset" value="Limpar">
             </p>
         </div>
@@ -149,6 +149,19 @@
             var resultado = window.document.querySelector('.result')
             resultado.innerHTML = 'Resultado...'
             resultado.style.font = 'normal 30pt Arial'
+        }
+
+        function clicar(){
+            var resultado = window.document.querySelector('.result')
+            var n1 = window.document.getElementById('a')
+            var n2 = window.document.getElementById('b')
+            var n3 = window.document.getElementById('c')
+            n1 = Number(n1.value)
+            n2 = Number(n2.value)
+            n3 = Number(n3.value)
+            var delta = (n2**2)-((4*n1)*n3)
+            resultado.innerHTML = `Resultado ${delta}`
+            
         }
     </script>
 </body>
