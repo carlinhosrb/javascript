@@ -160,8 +160,19 @@
             n2 = Number(n2.value)
             n3 = Number(n3.value)
             var delta = (n2**2)-((4*n1)*n3)
-            resultado.innerHTML = `Resultado ${delta}`
-            
+
+            var raiz = Math.sqrt(delta)
+            var x1 = (-n2 + raiz)/(2*n1)
+            var x2 = (-n2 - raiz)/(2*n1)
+
+            if (delta>0){
+                resultado.innerHTML = `Resultado Final de Δ =  ${delta} <br> X1 =  ${x1}<br> X2 =  ${x2}`
+                resultado.style.font = 'normal 17pt Arial'
+            }
+            else{
+                resultado.innerHTML ='O delta é negativo. <br>Equação não possui raízes reais.'
+                resultado.style.font = 'normal 15pt Arial'
+            }
         }
     </script>
 </body>
