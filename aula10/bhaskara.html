@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bhaskara</title>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        body,html{
+            background-color: #BAD29F;
+            font: normal 15pt Arial;
+        }
+
+        #calculadora{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+
+            background-color: #808A9F;
+            width: 400px;
+            height: 500px;
+            border-radius: 20px;
+        }
+
+        #calc_result{
+            background-color: rgba(173, 216, 230, 0.651);
+            width: 400px;
+            height: 125px;
+            border-radius: 17px 17px 0 0;
+        }
+
+        #calc_result p{
+            position: relative;
+            top: 30%;
+            left: 5%;
+            
+            font: normal 30pt Arial;
+            color: white;
+        }
+
+        #calc_valores{
+            position: relative;
+            top: 5%;
+
+            width: 400px;
+            height: 125px;
+            text-align: center;
+        }
+
+        #calc_valores p{
+            color: white;
+            width: 400px;
+            height: 41px;
+            display: inline;
+            text-align: center;
+            margin: 20px 2px;
+        }
+
+        #calc_valores input{
+            color: black;
+            font: normal 15pt Arial;
+            height: 30px;   
+            width: 75px;        
+            border: none;
+            border-radius: 10px;
+            margin: 20px 0;
+            text-align: center;
+            padding: 0 12px;
+        }
+
+        h2{
+            text-align: center;
+            padding: 10px;
+            color: white;
+        }
+
+        #calc_button{
+            width: 400px;
+            height: 125px;
+            text-align: center;
+        }
+
+        #calc_button p{
+            position: relative;
+            top: 25%;
+            padding: 10px;
+        }
+        
+        #calc_button input{
+            width: 150px;
+            height: 50px;
+            border: none;
+            border-radius: 10px;
+            background-color: #2C497F;
+            color: white;
+            font: normal 15pt Arial;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="calculadora">
+        <div id="calc_result" onmouseenter="entrar()" onmousedown="sair()">
+            <p class="result">Resultado...</p>
+        </div>
+        <div id="calc_valores">
+            <p>
+                <label for="a">A: </label>
+                <input type="number" name="a" id="a" placeholder="A" required>
+            </p>
+            <p>
+                <label for="b">B: </label>
+                <input type="number" name="b" id="b" placeholder="B" required>
+            </p>
+            <p>
+                <label for="c">C: </label>
+                <input type="number" name="c" id="c" placeholder="C" required>
+            </p>
+        </div>
+        <h2>Δ = b² - 4.a.c</h2>
+        <h2>X = (-b ± √Δ) / 2.a</h2>
+        <div id="calc_button">
+            <p>
+                <input type="submit" value="Calcular">
+                <input type="reset" value="Limpar">
+            </p>
+        </div>
+    </div>
+
+    <script>
+        function entrar(){
+            var res = window.document.getElementById('calc_result')
+            var resultado = window.document.querySelector('.result')
+            resultado.innerHTML = 'insira os valores correspondentes às variáveis <strong>A, B e C</strong>'
+            resultado.style.font = 'normal 15pt Arial'
+            res.style.color = 'white'
+            
+        }
+
+        function sair(){
+            var res = window.document.getElementById('calc_result')
+            var resultado = window.document.querySelector('.result')
+            resultado.innerHTML = 'Resultado...'
+            resultado.style.font = 'normal 30pt Arial'
+        }
+    </script>
+</body>
+</html>
