@@ -106,33 +106,35 @@
     </style>
 </head>
 <body>
-    <div id="calculadora">
-        <div id="calc_result" onmouseenter="entrar()" onmouseout="sair()">
-            <p class="result">Resultado...</p>
+    <form action="#" method="post">
+        <div id="calculadora">
+            <div id="calc_result" onmouseenter="entrar()" onmouseout="sair()">
+                <p class="result">Resultado...</p>
+            </div>
+            <div id="calc_valores">
+                <p>
+                    <label for="a">A: </label>
+                    <input type="number" name="a" id="a" placeholder="A" required>
+                </p>
+                <p>
+                    <label for="b">B: </label>
+                    <input type="number" name="b" id="b" placeholder="B" required>
+                </p>
+                <p>
+                    <label for="c">C: </label>
+                    <input type="number" name="c" id="c" placeholder="C" required>
+                </p>
+            </div>
+            <h2>Δ = b² - 4.a.c</h2>
+            <h2>X = (-b ± √Δ) / 2.a</h2>
+            <div id="calc_button">
+                <p>
+                    <input type="button" value="Calcular" id="btn" onclick="clicar()">
+                    <input type="reset" value="Limpar" onclick="limpe()">
+                </p>
+            </div>
         </div>
-        <div id="calc_valores">
-            <p>
-                <label for="a">A: </label>
-                <input type="number" name="a" id="a" placeholder="A" required>
-            </p>
-            <p>
-                <label for="b">B: </label>
-                <input type="number" name="b" id="b" placeholder="B" required>
-            </p>
-            <p>
-                <label for="c">C: </label>
-                <input type="number" name="c" id="c" placeholder="C" required>
-            </p>
-        </div>
-        <h2>Δ = b² - 4.a.c</h2>
-        <h2>X = (-b ± √Δ) / 2.a</h2>
-        <div id="calc_button">
-            <p>
-                <input type="submit" value="Calcular" id="button" onclick="clicar()">
-                <input type="reset" value="Limpar">
-            </p>
-        </div>
-    </div>
+    </form>
 
     <script>
         function entrar(){
@@ -169,10 +171,23 @@
                 resultado.innerHTML = `Resultado Final de Δ =  ${delta} <br> X1 =  ${x1}<br> X2 =  ${x2}`
                 resultado.style.font = 'normal 17pt Arial'
             }
+            
+            else if (((n1 == 0)&&(n2 == 0))||((n1 == 0)&&(n3 == 0))||((n3 == 0)&&(n2 == 0))){
+                    resultado.innerHTML ='insira os valores correspondentes às variáveis <strong>A, B e C</strong>'
+                    resultado.style.font = 'normal 15pt Arial'
+            }
+
             else{
                 resultado.innerHTML ='O delta é negativo. <br>Equação não possui raízes reais.'
                 resultado.style.font = 'normal 15pt Arial'
             }
+        }
+
+        function limpe(){
+            var res = window.document.getElementById('calc_result')
+            var resultado = window.document.querySelector('.result')
+            resultado.innerHTML = 'Resultado...'
+            resultado.style.font = 'normal 30pt Arial'
         }
     </script>
 </body>
