@@ -7,6 +7,27 @@
     <title>Pais</title>
 </head>
 <body>
-    
+    <h1>Sistema de vivencia</h1>
+    Digite o pais que voce mora <input type="text" name="txtpais" id="itxtpais">
+    <input type="button" value="Verificar" onclick="calcular()">
+    <div id="res">
+
+    <script>
+        function calcular(){
+            var pais = window.document.querySelector('input#itxtpais')
+            var res = document.querySelector('div#res')
+            var ipais = String(pais.value)
+
+            res.innerHTML = `<br>Vivendo em ${ipais}<br>`
+
+            if (ipais == 'Brasil'){
+                res.innerHTML += `Você é Brasileiro`
+            }
+            else{
+                res.innerHTML += `Você é estrangeiro`
+            }
+        }
+    </script>
+
 </body>
 </html>
