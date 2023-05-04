@@ -33,7 +33,7 @@ frase = frase.toUpperCase();                        //CONVERTE TODO TEXTO EM CAP
 
 let alfabeto = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
 var tamanhoFrase = frase.length;                    //TAMANHO DO TEXTO
-var codigoDaletra = frase;                          
+//var codigoDaletra = frase;                          
 let texto = []
 let cifra = []
 
@@ -43,10 +43,10 @@ for(i=0; i< tamanhoFrase; i++){
     let deslocamento = 7;
 
     let codASC = ((letra.charCodeAt(0))-65);        //CONVERTE A LETRA PARA CODIGO ASC E SALVA NA VARIAVEL codASC
-    //console.log(letra.charCodeAt(0));
-    //console.log(String.fromCharCode(teste));
+    //console.log(letra.charCodeAt(0));             //VIZUALIZAR CODIGO ASC DA LETRA
+    //console.log(String.fromCharCode(codASC));     //VIZUALIZAR LETRA PELO CODIGO ASC
     codASC = codASC + deslocamento;                 //SOMA O DESLOCAMENTO + CODIGO ASC DA LETRA
-    //console.log(teste)
+    //console.log(codASC)
 
     texto.push(letra)
     cifra.push(alfabeto[codASC])
