@@ -48,8 +48,10 @@ for(i=0; i< tamanhoFrase; i++){
     codASC = codASC + deslocamento;                 //SOMA O DESLOCAMENTO + CODIGO ASC DA LETRA
     //console.log(codASC)
 
-    texto.push(letra)
-    cifra.push(alfabeto[codASC])
+    //texto.push(letra)
+    //cifra.push(alfabeto[codASC])
+    texto += letra;
+    cifra += alfabeto[codASC];
 };
 console.log(texto);
 console.log(cifra);
