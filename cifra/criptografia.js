@@ -28,7 +28,7 @@ String.fromCharCode(72)
 */
 
 
-var frase ='carlos alexandre bernardino';                                //TEXTO ORIGINAL
+var frase ='erick sousa';                                //TEXTO ORIGINAL
 frase = frase.toUpperCase();                        //CONVERTE TODO TEXTO EM CAPS LOCK
 
 let alfabeto = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
@@ -39,22 +39,26 @@ let cifra = []
 
 for(i=0; i< tamanhoFrase; i++){
 
-    let letra = frase[i];
+    let letra = frase[i];                               //SEPARA LETRA A LETRA DO TEXTO NA VARIAVEL                     
     let deslocamento = 7;
 
-    let codASC = ((letra.charCodeAt(0))-65);        //CONVERTE A LETRA PARA CODIGO ASC E SALVA NA VARIAVEL codASC
-    //console.log(letra.charCodeAt(0));             //VIZUALIZAR CODIGO ASC DA LETRA
-    //console.log(String.fromCharCode(codASC));     //VIZUALIZAR LETRA PELO CODIGO ASC
-    codASC = codASC + deslocamento;                 //SOMA O DESLOCAMENTO + CODIGO ASC DA LETRA
-    //console.log(codASC)
+    if (letra == ' '){                                  //CONFERE SE TEM ESPAÇO EM BRANCO NO TEXTO PLANO
+        texto += ' ';                                   //SE TIVER ESPAÇO EM BRANCO ELE CONCATENA NO TEXTO
+        cifra += ' ';                                   //SE TIVER ESPAÇO EM BRANCO ELE CONCATENA NA CIFRA
+    }
+    else{
+        let codASC = ((letra.charCodeAt(0))-65);        //CONVERTE A LETRA PARA CODIGO ASC E SALVA NA VARIAVEL codASC
+        //console.log(letra.charCodeAt(0));             //VIZUALIZAR CODIGO ASC DA LETRA
+        //console.log(String.fromCharCode(codASC));     //VIZUALIZAR LETRA PELO CODIGO ASC
+        codASC = codASC + deslocamento;                 //SOMA O DESLOCAMENTO + CODIGO ASC DA LETRA
+        codASC = (codASC % alfabeto.length)+65;
+        //console.log(codASC)
 
-    //texto.push(letra)
-    //cifra.push(alfabeto[codASC])
-    texto += letra;
-    cifra += alfabeto[codASC];
+        //texto.push(letra)
+        //cifra.push(alfabeto[codASC])
+        texto += letra;
+        cifra += String.fromCharCode(codASC);
+    }
 };
 console.log(texto);
 console.log(cifra);
-    //(codigoDaletra + desloc) % tamDoAlfabeto
-
-    //((codigoDaletraASC - cod1aLetra + desloc) % tamDoAlfabeto) + cod1Letra
