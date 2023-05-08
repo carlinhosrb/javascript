@@ -28,7 +28,7 @@ String.fromCharCode(72)
 */
 
 
-var frase ='carlos';                                //TEXTO ORIGINAL
+var frase ='carlos alexandre bernardino';                                //TEXTO ORIGINAL
 frase = frase.toUpperCase();                        //CONVERTE TODO TEXTO EM CAPS LOCK
 
 let alfabeto = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
