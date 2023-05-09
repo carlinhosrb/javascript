@@ -76,27 +76,33 @@ function cripto(){
     let texto = []
     let cifra = []
 
-    for(i=0; i< tamanhoFrase; i++){
+    if(frase == "" || deslo <= 0){
+        res.innerHTML = 'Impossivel contar! <br>'
+        res.innerHTML += 'INFORMAR TEXTO PLANO E DESLOCAMENTO'
+    }
 
-        let letra = frase[i];                               //SEPARA LETRA A LETRA DO TEXTO NA VARIAVEL
+    else{
+        for(i=0; i< tamanhoFrase; i++){
 
-        if (letra == ' '){                                  //CONFERE SE TEM ESPAÇO EM BRANCO NO TEXTO PLANO
-            texto += ' ';                                   //SE TIVER ESPAÇO EM BRANCO ELE CONCATENA NO TEXTO
-            cifra += ' ';                                   //SE TIVER ESPAÇO EM BRANCO ELE CONCATENA NA CIFRA
-        }
-        else{
-            let codASC = ((letra.charCodeAt(0))-65);        //CONVERTE A LETRA PARA CODIGO ASC E SALVA NA VARIAVEL codASC
+            let letra = frase[i];                               //SEPARA LETRA A LETRA DO TEXTO NA VARIAVEL
+
+            if (letra == ' '){                                  //CONFERE SE TEM ESPAÇO EM BRANCO NO TEXTO PLANO
+                texto += ' ';                                   //SE TIVER ESPAÇO EM BRANCO ELE CONCATENA NO TEXTO
+                cifra += ' ';                                   //SE TIVER ESPAÇO EM BRANCO ELE CONCATENA NA CIFRA
+            }
+            else{
+                let codASC = ((letra.charCodeAt(0))-65);        //CONVERTE A LETRA PARA CODIGO ASC E SALVA NA VARIAVEL codASC
+                
+                codASC = codASC + deslo;                        //SOMA O DESLOCAMENTO + CODIGO ASC DA LETRA
+                codASC = (codASC % alfabeto.length)+65;
+                
+                texto += letra;
+                cifra += String.fromCharCode(codASC);
+            }
             
-            codASC = codASC + deslo;                        //SOMA O DESLOCAMENTO + CODIGO ASC DA LETRA
-            codASC = (codASC % alfabeto.length)+65;
-            
-            texto += letra;
-            cifra += String.fromCharCode(codASC);
-        }
-    };
-
-    //res.innerHTML = `${texto}`
-    res.innerHTML = `${cifra}`
+            res.innerHTML = `${cifra}`
+        };
+    }
 }
 
 function descripto(){
@@ -113,24 +119,30 @@ function descripto(){
     let texto = []
     let cifra = []
 
-    for(i=0; i< tamanhoFrase; i++){
+    if(frase == "" || deslo >= 0){
+        res.innerHTML = 'Impossivel contar! <br>'
+        res.innerHTML += 'INFORMAR TEXTO CIFRADO E DESLOCAMENTO'
+    }
 
-        let letra = frase[i];                               //SEPARA LETRA A LETRA DO TEXTO NA VARIAVEL
+    else{
+        for(i=0; i< tamanhoFrase; i++){
 
-        if (letra == ' '){                                  //CONFERE SE TEM ESPAÇO EM BRANCO NO TEXTO PLANO
-            texto += ' ';                                   //SE TIVER ESPAÇO EM BRANCO ELE CONCATENA NO TEXTO
-            cifra += ' ';                                   //SE TIVER ESPAÇO EM BRANCO ELE CONCATENA NA CIFRA
-        }
-        else{
-            let codASC = ((letra.charCodeAt(0))-65);        //CONVERTE A LETRA PARA CODIGO ASC E SALVA NA VARIAVEL codASC
-            
-            codASC = codASC + deslo;                        //SOMA O DESLOCAMENTO + CODIGO ASC DA LETRA
-            codASC = (codASC % alfabeto.length)+65;
-            
-            texto += letra;
-            cifra += String.fromCharCode(codASC);
-        }
-    };
+            let letra = frase[i];                               //SEPARA LETRA A LETRA DO TEXTO NA VARIAVEL
 
-    res.innerHTML = `${cifra}`
+            if (letra == ' '){                                  //CONFERE SE TEM ESPAÇO EM BRANCO NO TEXTO PLANO
+                texto += ' ';                                   //SE TIVER ESPAÇO EM BRANCO ELE CONCATENA NO TEXTO
+                cifra += ' ';                                   //SE TIVER ESPAÇO EM BRANCO ELE CONCATENA NA CIFRA
+            }
+            else{
+                let codASC = ((letra.charCodeAt(0))-90);        //CONVERTE A LETRA PARA CODIGO ASC E SALVA NA VARIAVEL codASC
+                
+                codASC = codASC + deslo;                        //SOMA O DESLOCAMENTO + CODIGO ASC DA LETRA
+                codASC = (codASC % alfabeto.length)+90;
+                
+                texto += letra;
+                cifra += String.fromCharCode(codASC);
+            }
+        };
+        res.innerHTML = `${cifra}`
+    }
 }
