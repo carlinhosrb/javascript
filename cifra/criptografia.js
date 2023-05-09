@@ -67,7 +67,8 @@ function cripto(){
     var frase = document.getElementById('textoplano');              //TEXTO PLANO        
     let deslo = document.getElementById('deslocamento');            //DESLOCAMENTO
     var res = document.getElementById('res')
-    frase = frase.toUpperCase();                                    //CONVERTE TODO TEXTO EM CAPS LOCK
+    frase = frase.value.toUpperCase();                              //CONVERTE TODO TEXTO EM CAPS LOCK
+    deslo = Number(deslo.value);
 
     let alfabeto = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
     var tamanhoFrase = frase.length;                    //TAMANHO DO TEXTO
@@ -95,5 +96,41 @@ function cripto(){
     };
 
     //res.innerHTML = `${texto}`
+    res.innerHTML = `${cifra}`
+}
+
+function descripto(){
+    var frase = document.getElementById('textocifra');              //TEXTO PLANO        
+    let deslo = document.getElementById('deslocamento');            //DESLOCAMENTO
+    var res = document.getElementById('res')
+    frase = frase.value.toUpperCase();                              //CONVERTE TODO TEXTO EM CAPS LOCK
+    deslo = Number(deslo.value);
+    deslo = deslo / -1;
+
+    let alfabeto = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
+    var tamanhoFrase = frase.length;                    //TAMANHO DO TEXTO
+                              
+    let texto = []
+    let cifra = []
+
+    for(i=0; i< tamanhoFrase; i++){
+
+        let letra = frase[i];                               //SEPARA LETRA A LETRA DO TEXTO NA VARIAVEL
+
+        if (letra == ' '){                                  //CONFERE SE TEM ESPAÇO EM BRANCO NO TEXTO PLANO
+            texto += ' ';                                   //SE TIVER ESPAÇO EM BRANCO ELE CONCATENA NO TEXTO
+            cifra += ' ';                                   //SE TIVER ESPAÇO EM BRANCO ELE CONCATENA NA CIFRA
+        }
+        else{
+            let codASC = ((letra.charCodeAt(0))-65);        //CONVERTE A LETRA PARA CODIGO ASC E SALVA NA VARIAVEL codASC
+            
+            codASC = codASC + deslo;                        //SOMA O DESLOCAMENTO + CODIGO ASC DA LETRA
+            codASC = (codASC % alfabeto.length)+65;
+            
+            texto += letra;
+            cifra += String.fromCharCode(codASC);
+        }
+    };
+
     res.innerHTML = `${cifra}`
 }
