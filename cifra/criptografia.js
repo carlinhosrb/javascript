@@ -100,7 +100,7 @@ function cripto(){
     }
 
     else {
-        for(i=0; i< tamanhoFrase; i++){
+        for(let i=0; i< tamanhoFrase; i++){
 
             let letra = frase[i];                               //SEPARA LETRA A LETRA DO TEXTO NA VARIAVEL
 
@@ -127,8 +127,8 @@ function descripto(){
     let deslo = document.getElementById('deslocamento');            //DESLOCAMENTO
     var res = document.getElementById('res')
     frase = frase.value.toUpperCase();                              //CONVERTE TODO TEXTO EM CAPS LOCK
-    deslo = Number(deslo.value);
-    deslo = deslo / -1;
+    deslo = Number(deslo.value);                                    //CONVERTER O DESLOCAMENTO EM NUMERO
+    deslo = deslo / -1;                                             //CONVERTER O DESLOCAMENTO PARA NEGATIVO
 
     let alfabeto = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
     var tamanhoFrase = frase.length;                    //TAMANHO DO TEXTO
@@ -142,7 +142,7 @@ function descripto(){
     }
 
     else{
-        for(i=0; i< tamanhoFrase; i++){
+        for(let i=0; i< tamanhoFrase; i++){
 
             let letra = frase[i];                               //SEPARA LETRA A LETRA DO TEXTO NA VARIAVEL
 
@@ -151,10 +151,9 @@ function descripto(){
                 cifra += ' ';                                   //SE TIVER ESPAÇO EM BRANCO ELE CONCATENA NA CIFRA
             }
             else{
-                let codASC = ((letra.charCodeAt(0))-90);        //CONVERTE A LETRA PARA CODIGO ASC E SALVA NA VARIAVEL codASC
-                
+                let codASC = ((letra.charCodeAt(0))-90);        //CONVERTE A LETRA PARA CODIGO ASC -90 (CODIGO ASC DA LETRA "Z")                
                 codASC = codASC + deslo;                        //SOMA O DESLOCAMENTO + CODIGO ASC DA LETRA
-                codASC = (codASC % alfabeto.length)+90;
+                codASC = (codASC % alfabeto.length)+90;         // % MODULO, RETORNA O RESTO DA DIVISÃO E SOMA +90 (CODIGO ASC DA LETRA "Z")
                 
                 texto += letra;
                 cifra += String.fromCharCode(codASC);
