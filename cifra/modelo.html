@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Super contador</title>
+    <title>Criptografia</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="icon/icons8-cadeado-400.png" type="image/x-icon">
 </head>
 <body>
     <header>
@@ -13,14 +14,14 @@
     </header>
     <section>
         <div id="dados">
-            <p>Texto Plano: <input type="text" name="textoplano" id="textoplano"></p>
-            <p>Texto Cifrado: <input type="text" name="textocifra" id="textocifra"></p>
+            <p>Texto Plano: <input type="text" name="textoplano" id="textoplano" onkeypress="return ApenasLetras(event,this);"></p>
+            <p>Texto Cifrado: <input type="text" name="textocifra" id="textocifra" onkeypress="return ApenasLetras(event,this);"></p>
             <p>Deslocamento: <input type="number" name="deslocamento" id="deslocamento" value="0"></p>
             <p><input type="button" value="Criptografar" onclick="cripto()"></p>
             <p><input type="button" value="Descriptografar" onclick="descripto()"></p>
         </div>
         <div id="res">
-            <br>Preparando...
+            <br>No texto plano digite uma frase...
         </div>
     </section>
     <footer>

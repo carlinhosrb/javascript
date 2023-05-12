@@ -62,26 +62,44 @@ for(i=0; i< tamanhoFrase; i++){
 console.log(texto);
 console.log(cifra);
 */
+function ApenasLetras(e, t) {
+    try {
+        if (window.event) {
+            var charCode = window.event.keyCode;
+        } else if (e) {
+            var charCode = e.which;
+        } else {
+            return true;
+        }
+        if ((charCode > 64 && charCode < 91) || (charCode > 96 && charCode < 123) || (charCode == 32))
+            return true;
+        else
+            return false;
+    } catch (err) {
+        alert(err.Description);
+    }
+}
 
 function cripto(){
-    var frase = document.getElementById('textoplano');              //TEXTO PLANO        
-    let deslo = document.getElementById('deslocamento');            //DESLOCAMENTO
-    var res = document.getElementById('res')
+    var frase = document.getElementById('textoplano');              //ARMAZENA TEXTO PLANO EM FRASE        
+    let deslo = document.getElementById('deslocamento');            //ARMAZENA O VALOR DO DESLOCAMENTO
+    var res = document.getElementById('res')                        //ARMAZENA A DIV RES EM RES
     frase = frase.value.toUpperCase();                              //CONVERTE TODO TEXTO EM CAPS LOCK
-    deslo = Number(deslo.value);
+    deslo = Number(deslo.value);                                    //CONVERTER O DESLOCAMENTO EM NUMERO
 
     let alfabeto = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
-    var tamanhoFrase = frase.length;                    //TAMANHO DO TEXTO
+    var tamanhoFrase = frase.length;                                //TAMANHO DO TEXTO
                               
-    let texto = []
-    let cifra = []
+    let texto = []                                                  //ARRAY TEXTO PLANO
+    let cifra = []                                                  //ARRAY TEXTO CIFRADO
 
-    if(frase == "" || deslo <= 0){
+
+    if(frase == "" || deslo <= 0){                                  //SE FRASE NÃO TIVER NADA ESCRITO OU DESLOCAMENTO 0 
         res.innerHTML = 'Impossivel contar! <br>'
         res.innerHTML += 'INFORMAR TEXTO PLANO E DESLOCAMENTO'
     }
 
-    else{
+    else {
         for(i=0; i< tamanhoFrase; i++){
 
             let letra = frase[i];                               //SEPARA LETRA A LETRA DO TEXTO NA VARIAVEL
@@ -91,16 +109,15 @@ function cripto(){
                 cifra += ' ';                                   //SE TIVER ESPAÇO EM BRANCO ELE CONCATENA NA CIFRA
             }
             else{
-                let codASC = ((letra.charCodeAt(0))-65);        //CONVERTE A LETRA PARA CODIGO ASC E SALVA NA VARIAVEL codASC
-                
+                let codASC = ((letra.charCodeAt(0))-65);        //CONVERTE A LETRA PARA CODIGO ASC -65 (CODIGO ASC DA LETRA "A")                
                 codASC = codASC + deslo;                        //SOMA O DESLOCAMENTO + CODIGO ASC DA LETRA
-                codASC = (codASC % alfabeto.length)+65;
+                codASC = (codASC % alfabeto.length)+65;         // % MODULO, RETORNA O RESTO DA DIVISÃO E SOMA +65 (CODIGO ASC DA LETRA "A")
                 
-                texto += letra;
-                cifra += String.fromCharCode(codASC);
+                texto += letra;                                 //CONCATENA AS LETRA DO TEXTO PLANO EM TEXTO
+                cifra += String.fromCharCode(codASC);           //CONVETER O COFIGO ASC EM LENTRA E CONCATENA EM CIFRA
             }
             
-            res.innerHTML = `${cifra}`
+            res.innerHTML = `${cifra}`                          //EXIBI O RESULTADO NA DIV RES
         };
     }
 }
