@@ -16,9 +16,6 @@ A  B
                 -65         +des      %tam      +65
 codigoASC => codigo0a25 => desloc => giro => codigASC
 
-
-
-
 "A".charCodeAt(0)
 // 65
 String.fromCharCode(72)
@@ -26,42 +23,7 @@ String.fromCharCode(72)
 
 ((codigoDaletraASC - cod1aLetra + desloc) % tamDoAlfabeto) + cod1Letra
 */
-/*
-var frase ='erick sousa';                                //TEXTO ORIGINAL
-frase = frase.toUpperCase();                        //CONVERTE TODO TEXTO EM CAPS LOCK
 
-let alfabeto = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
-var tamanhoFrase = frase.length;                    //TAMANHO DO TEXTO
-//var codigoDaletra = frase;                          
-let texto = []
-let cifra = []
-
-for(i=0; i< tamanhoFrase; i++){
-
-    let letra = frase[i];                               //SEPARA LETRA A LETRA DO TEXTO NA VARIAVEL                     
-    let deslocamento = 7;
-
-    if (letra == ' '){                                  //CONFERE SE TEM ESPAÇO EM BRANCO NO TEXTO PLANO
-        texto += ' ';                                   //SE TIVER ESPAÇO EM BRANCO ELE CONCATENA NO TEXTO
-        cifra += ' ';                                   //SE TIVER ESPAÇO EM BRANCO ELE CONCATENA NA CIFRA
-    }
-    else{
-        let codASC = ((letra.charCodeAt(0))-65);        //CONVERTE A LETRA PARA CODIGO ASC E SALVA NA VARIAVEL codASC
-        //console.log(letra.charCodeAt(0));             //VIZUALIZAR CODIGO ASC DA LETRA
-        //console.log(String.fromCharCode(codASC));     //VIZUALIZAR LETRA PELO CODIGO ASC
-        codASC = codASC + deslocamento;                 //SOMA O DESLOCAMENTO + CODIGO ASC DA LETRA
-        codASC = (codASC % alfabeto.length)+65;
-        //console.log(codASC)
-
-        //texto.push(letra)
-        //cifra.push(alfabeto[codASC])
-        texto += letra;
-        cifra += String.fromCharCode(codASC);
-    }
-};
-console.log(texto);
-console.log(cifra);
-*/
 function ApenasLetras(e, t) {
     try {
         if (window.event) {
